@@ -110,6 +110,74 @@ h1, h2, h3 {
     margin-bottom: 20px;
 }
 
+/* Linha de destaque logo abaixo do nome: fonte condensada (Anton) e
+   texto em degradê, pra chamar bem mais atenção que um parágrafo comum. */
+.subtitulo-destaque {
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    /* O degradê tem mais cores e é 3x mais largo que o texto
+       (background-size: 300%). Animando o background-position, a
+       "faixa" de cor desliza por baixo do texto continuamente —
+       é o mesmo truque usado em textos "holográficos". */
+    background: linear-gradient(90deg, #ff6b35, #ffb627, #fff6ee, #ffb627, #ff6b35);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: cores-fluindo 5s linear infinite, brilho-subtitulo 3s ease-in-out infinite;
+}
+
+@keyframes cores-fluindo {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* filter: drop-shadow funciona em texto com cor transparente
+   (diferente de text-shadow, que em alguns navegadores some
+   junto com a cor do texto) — por isso o brilho usa drop-shadow. */
+@keyframes brilho-subtitulo {
+    0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 107, 53, 0.5)); }
+    50% { filter: drop-shadow(0 0 14px rgba(255, 182, 39, 0.75)); }
+}
+
+@media (max-width: 720px) {
+    .subtitulo-destaque { font-size: 20px; }
+}
+
+/* Tooltip "Estudante" nas tags de Programação e Marketing.
+   ::after cria uma bolha que fica invisível (opacity: 0) até o
+   :hover, quando ela aparece e sobe um pouco (translateY). */
+.tag-tooltip {
+    position: relative;
+    cursor: default;
+}
+
+.tag-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #ff6b35;
+    color: #1a0a04;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s, transform 0.15s;
+}
+
+.tag-tooltip:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -214,6 +282,11 @@ h1, h2, h3 {
 .bio p {
     line-height: 1.7;
     color: #cbb9ad;
+    margin-bottom: 12px;
+}
+
+.bio p:last-child {
+    margin-bottom: 0;
 }
 
 .curiosidades ul {
@@ -503,6 +576,26 @@ h1, h2, h3 {
     text-align: center;
     margin-top: 10px;
     font-size: 14px;
+}
+
+/* Selos com os termos de edição usados naquele corte específico */
+.modal-termos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.modal-termos .termo {
+    background: #1c130f;
+    border: 1px solid #ff6b35;
+    color: #ffb627;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 4px 10px;
+    border-radius: 20px;
 }
 
 /* ===== Contato ===== */
