@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="imagens/favicon-64.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,18 +26,18 @@
              layout centralizado dos outros dois sites) ===== -->
         <header class="hero">
             <div class="hero-texto">
-                <p class="cargo" data-pt="ESTUDANTE DE PROGRAMAÇÃO E MARKETING" data-en="PROGRAMMING & MARKETING STUDENT">
-                    ESTUDANTE DE PROGRAMAÇÃO E MARKETING
+                <p class="cargo" data-pt="CRIADOR DE CONTEÚDO & EDITOR DE VÍDEO" data-en="CONTENT CREATOR & VIDEO EDITOR">
+                    CRIADOR DE CONTEÚDO & EDITOR DE VÍDEO
                 </p>
                 <h1 class="nome">Paulo Cesar Gonçalves</h1>
-                <p class="subtitulo" data-pt="Editor de vídeo, estudante de Programação e estudante de Marketing" data-en="Video editor, Coding student, and Marketing student">
-                    Editor de vídeo, estudante de Programação e estudante de Marketing
+                <p class="subtitulo-destaque" data-pt="Editor de Vídeo | Social Media | Marketing Digital" data-en="Video Editor | Social Media | Digital Marketing">
+                    Editor de Vídeo | Social Media | Marketing Digital
                 </p>
 
                 <div class="tags">
                     <span class="tag"><i class="fa-solid fa-clapperboard"></i> Edição de Vídeo</span>
-                    <span class="tag"><i class="fa-solid fa-code"></i> Programação</span>
-                    <span class="tag"><i class="fa-solid fa-chart-line"></i> Marketing</span>
+                    <span class="tag tag-tooltip" data-tooltip="Estudante" data-tooltip-pt="Estudante" data-tooltip-en="Student"><i class="fa-solid fa-code"></i> Programação</span>
+                    <span class="tag tag-tooltip" data-tooltip="Estudante" data-tooltip-pt="Estudante" data-tooltip-en="Student"><i class="fa-solid fa-chart-line"></i> Marketing</span>
                 </div>
 
                 <div class="badge">
@@ -58,11 +58,21 @@
 
             <div class="card bio">
                 <h3 class="titulo-card" data-pt="Sobre mim" data-en="About me">Sobre mim</h3>
-                <p data-pt="Oi! Estou construindo minha base em HTML, CSS e JavaScript, ao mesmo tempo em que trabalho com edição de vídeo e estudo marketing digital. Gosto de unir essas três áreas em projetos que combinam código, design e comunicação."
-                   data-en="Hi! I'm building my foundation in HTML, CSS and JavaScript, while also working on video editing and studying digital marketing. I like combining these three areas into projects that blend code, design and communication.">
-                    Oi! Estou construindo minha base em HTML, CSS e JavaScript, ao mesmo tempo em que
-                    trabalho com edição de vídeo e estudo marketing digital. Gosto de unir essas três
-                    áreas em projetos que combinam código, design e comunicação.
+                <p data-pt="Sou apaixonado por criação de conteúdo, comunicação e pelo universo digital. Trabalho com edição de vídeos desde 2024 e tenho interesse em desenvolver projetos que unem criatividade, estratégia e marketing."
+                   data-en="I'm passionate about content creation, communication and the digital universe. I've worked with video editing since 2024 and I'm interested in developing projects that combine creativity, strategy and marketing.">
+                    Sou apaixonado por criação de conteúdo, comunicação e pelo universo digital. Trabalho
+                    com edição de vídeos desde 2024 e tenho interesse em desenvolver projetos que unem
+                    criatividade, estratégia e marketing.
+                </p>
+                <p data-pt="Tenho experiência com edição de vídeos e criação de conteúdo para redes sociais, utilizando ferramentas como CapCut, DaVinci Resolve e Canva."
+                   data-en="I have experience with video editing and content creation for social media, using tools like CapCut, DaVinci Resolve and Canva.">
+                    Tenho experiência com edição de vídeos e criação de conteúdo para redes sociais,
+                    utilizando ferramentas como CapCut, DaVinci Resolve e Canva.
+                </p>
+                <p data-pt="Estou sempre buscando aprimorar minhas habilidades em edição, social media e marketing digital, com o objetivo de criar conteúdos que atraiam, comuniquem e gerem resultados."
+                   data-en="I'm always looking to improve my skills in editing, social media and digital marketing, with the goal of creating content that attracts, communicates and delivers results.">
+                    Estou sempre buscando aprimorar minhas habilidades em edição, social media e marketing
+                    digital, com o objetivo de criar conteúdos que atraiam, comuniquem e gerem resultados.
                 </p>
             </div>
 
@@ -131,31 +141,33 @@
                      O href continua apontando pro vídeo, como "plano B" caso o
                      JavaScript não carregue por algum motivo. -->
 
-                <a href="videos/corte-live.mp4" data-video="videos/corte-live.mp4" class="card-projeto">
+                <a href="videos/corte-live.mp4" data-video="videos/corte-live.mp4" data-termos="Split Screen, Jump Cut, Impact, SFX" class="card-projeto">
 
                     <video class="thumb thumb-video" src="videos/corte-live.mp4" poster="imagens/cortedelive.png" muted loop playsinline preload="metadata"></video>
 
                     <p class="nome-projeto">Corte de live - Douglassola</p>
                 </a>
 
-                <a href="videos/corte-roblox.mp4" data-video="videos/corte-roblox.mp4" class="card-projeto">
+                <a href="videos/corte-roblox.mp4" data-video="videos/corte-roblox.mp4" data-termos="Caption Pop, SFX, Zoom Punch" class="card-projeto">
 
                     <video class="thumb thumb-video" src="videos/corte-roblox.mp4" poster="imagens/gameplayroblox.png" muted loop playsinline preload="metadata"></video>
 
                     <p class="nome-projeto">Corte de gameplay - Roblox</p>
                 </a>
 
-                <a href="videos/corte-reacao.mp4" data-video="videos/corte-reacao.mp4" class="card-projeto">
+                <a href="videos/corte-reacao.mp4" data-video="videos/corte-reacao.mp4" data-termos="J-Cut, Cutaway, Fade In/Out, B-Roll" class="card-projeto">
 
                     <video class="thumb thumb-video" src="videos/corte-reacao.mp4" poster="imagens/desabafo.png" muted loop playsinline preload="metadata"></video>
 
                     <p class="nome-projeto">Corte de Desabafo</p>
                 </a>
 
-                <div class="card-projeto card-projeto-vazio">
-                    <div class="thumb thumb-vazio"><span>+</span></div>
-                    <p class="nome-projeto" data-pt="Em breve" data-en="Coming soon">Em breve</p>
-                </div>
+                <a href="videos/copywriting.mp4" data-video="videos/copywriting.mp4" data-termos="Keyframing, SFX, Zoom Punch, B-Roll" class="card-projeto">
+
+    <video class="thumb thumb-video" src="videos/copywriting.mp4#t=0.5" muted loop playsinline preload="metadata"></video>
+
+    <p class="nome-projeto">Edição com Keyframing</p>
+</a>
 
                 <div class="card-projeto card-projeto-vazio">
                     <div class="thumb thumb-vazio"><span>+</span></div>
@@ -242,6 +254,7 @@
             <button class="modal-fechar" id="modal-fechar" aria-label="Fechar">&times;</button>
             <video id="modal-video-player" controls playsinline></video>
             <p class="modal-titulo" id="modal-titulo"></p>
+            <div class="modal-termos" id="modal-termos"></div>
         </div>
     </div>
 
