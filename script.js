@@ -117,22 +117,6 @@ function animar(tempo) {
 requestAnimationFrame(animar);
 
 
-// ===== Vídeos de projeto: tocam ao passar o mouse, pausam ao sair =====
-// preload="metadata" no HTML faz o navegador carregar só a capinha
-// (duração, dimensões), sem baixar o vídeo inteiro de cara — ele só
-// é realmente baixado quando a pessoa passa o mouse e o play() roda.
-const videosProjeto = document.querySelectorAll(".thumb-video");
-
-videosProjeto.forEach(video => {
-    video.addEventListener("mouseenter", () => video.play());
-
-    video.addEventListener("mouseleave", () => {
-        video.pause();
-        video.currentTime = 0; // volta pro começo, pra próxima vez que passar o mouse começar do zero
-    });
-});
-
-
 // ===== Modal de vídeo =====
 // Em vez de abrir o vídeo em outra aba, interceptamos o clique no card
 // (e.preventDefault() cancela a navegação do link) e tocamos o vídeo
@@ -140,11 +124,26 @@ videosProjeto.forEach(video => {
 const modal = document.getElementById("modal-video");
 const modalPlayer = document.getElementById("modal-video-player");
 const modalTitulo = document.getElementById("modal-titulo");
+const modalTermos = document.getElementById("modal-termos");
 const modalFechar = document.getElementById("modal-fechar");
 
 function abrirModal(card) {
     modalPlayer.src = card.dataset.video;
     modalTitulo.textContent = card.querySelector(".nome-projeto").textContent;
+
+    // data-termos guarda os termos separados por vírgula, ex:
+    // "Split Screen, Jump Cut, Impact, SFX". Aqui a gente separa essa
+    // string numa lista e cria um selinho <span> pra cada termo.
+    modalTermos.innerHTML = "";
+    if (card.dataset.termos) {
+        card.dataset.termos.split(",").forEach(termo => {
+            const selo = document.createElement("span");
+            selo.className = "termo";
+            selo.textContent = termo.trim();
+            modalTermos.appendChild(selo);
+        });
+    }
+
     modal.classList.add("ativo");
     modalPlayer.play();
 }
@@ -192,6 +191,13 @@ botoesIdioma.forEach(botao => {
 
         elementosTraduziveis.forEach(el => {
             el.textContent = el.dataset[idioma];
+        });
+
+        // A tooltip não é texto visível (vem do CSS, via attr(data-tooltip)),
+        // então precisa ser atualizada separadamente, trocando o atributo
+        // "neutro" (data-tooltip) pelo valor do idioma escolhido.
+        document.querySelectorAll(".tag-tooltip").forEach(tag => {
+            tag.dataset.tooltip = idioma === "pt" ? tag.dataset.tooltipPt : tag.dataset.tooltipEn;
         });
     });
 });
